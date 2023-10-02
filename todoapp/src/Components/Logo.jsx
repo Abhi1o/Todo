@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Logo = () => {
   // 1. Initialize a state variable to store the current date and time.
@@ -15,30 +15,34 @@ const Logo = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-    // Format the date as "Tue, 22 Jan 2023"
+  // Format the date as "Tue, 22 Jan 2023"
   const formattedDate = currentDateTime.toLocaleDateString(undefined, {
-
-    weekday: 'long', // Short weekday name (e.g., "Tue")
-    month: 'short',   // Short month name (e.g., "Jan")
-    day: 'numeric',
+    weekday: "long", // Short weekday name (e.g., "Tue")
+    month: "short", // Short month name (e.g., "Jan")
+    day: "2-digit",
   });
   //Format the Time as "05:25 PM"
-  const formattedTime = currentDateTime.toLocaleTimeString(undefined,{
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false, 
-  })
+  const formattedTime = currentDateTime.toLocaleTimeString(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
   // 5. Render the current date and time.
 
   return (
     <>
-    <header className='flex align-center justify-center'>
-      <h1 className=' font-semibold text-5xl text-white font-calibri'>TODO</h1>
-    </header>
-      <div className='mt-9'>
-      <p className="text-3xl font- text-white">{formattedTime}</p>
-      <p className="text-white">{formattedDate}</p>
-      </div>
+      <header className="flex items-center justify-center">
+        <h1 className=" tracking-wider font-semibold mt-14 text-4xl text-yellow-600 font-Proxima">
+          ToDo{" "}
+        </h1>
+      </header>
+      <div className=" flex items-center justify-center">
+      <div className="mt-8 ml-3 timedate text-left">
+        <p className="text-3xl tracking-wider font-sans text-white">
+          {formattedTime}
+        </p>
+        <p className="text-xs ml-1 text-teal-100">{formattedDate}</p>
+      </div></div>
     </>
   );
 };
